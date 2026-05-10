@@ -13,6 +13,24 @@ namespace DDCH
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                ApplyLanguage();
+            }
+        }
+
+        private void ApplyLanguage()
+        {
+            lblWelcome.Text = LanguageHelper.Get("WelcomePortal");
+            lblDesc.Text = LanguageHelper.Get("PortalDesc");
+            lblSignIn.Text = LanguageHelper.Get("SignIn");
+            lblSignInDesc.Text = LanguageHelper.Get("SignInDesc");
+            lblEmail.Text = LanguageHelper.Get("Email");
+            lblPassword.Text = LanguageHelper.Get("Password");
+            chkRemember.Text = LanguageHelper.Get("Remember");
+            btnLoginSubmit.Text = LanguageHelper.Get("SignInBtn");
+            lblRegisterText.Text = LanguageHelper.Get("NeedShare");
+            lnkRegister.Text = LanguageHelper.Get("RegisterLink");
         }
 
         protected void BtnLogin_Click(object sender, EventArgs e)

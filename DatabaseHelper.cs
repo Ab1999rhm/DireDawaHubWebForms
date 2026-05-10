@@ -48,6 +48,7 @@ namespace DDCH
                         Title TEXT,
                         Content TEXT,
                         Status TEXT DEFAULT 'Pending', -- Pending, Approved, Rejected, Deactivated
+                        ImagePath TEXT,
                         CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
                         FOREIGN KEY (UserId) REFERENCES Users(UserId)
                     );
@@ -70,6 +71,16 @@ namespace DDCH
                 {
                     cmd.ExecuteNonQuery();
                 }
+
+                // Ensure ImagePath column exists in Posts table
+                try
+                {
+                    using (var cmd = new SQLiteCommand("ALTER TABLE Posts ADD COLUMN ImagePath TEXT;", conn))
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                catch { /* Column already exists */ }
             }
         }
 

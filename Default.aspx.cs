@@ -18,9 +18,34 @@ namespace DDCH
         {
             if (!IsPostBack)
             {
+                ApplyLanguage();
                 LoadHomeData();
                 LoadWeather();
             }
+        }
+
+        private void ApplyLanguage()
+        {
+            lblHeroTitle.Text = LanguageHelper.Get("HeroTitleMain");
+            lblHeroSubtitle.Text = LanguageHelper.Get("HeroSubtitleMain");
+            btnSearch.Text = LanguageHelper.Get("SearchBtn");
+            btnNavWater.Text = LanguageHelper.Get("WaterSvc");
+            btnNavHealth.Text = LanguageHelper.Get("HealthCl");
+            btnNavAgri.Text = LanguageHelper.Get("AgriSvc");
+            btnNavJobs.Text = LanguageHelper.Get("JobP");
+            btnNavEdu.Text = LanguageHelper.Get("EduSvc");
+            lblWaterLabel.Text = LanguageHelper.Get("WaterStat");
+            lblClinicLabel.Text = LanguageHelper.Get("HealthStat");
+            lblMarketLabel.Text = LanguageHelper.Get("MarketStat");
+            lblJobLabel.Text = LanguageHelper.Get("JobStat");
+            lblPostersHeader.Text = LanguageHelper.Get("PostersHdr");
+            lblEduHeader.Text = LanguageHelper.Get("EduHdr");
+            lblWaterHeader.Text = LanguageHelper.Get("WaterHdr");
+            lblHealthHeader.Text = LanguageHelper.Get("HealthHdr");
+            lblJobsHeader.Text = LanguageHelper.Get("JobsHdr");
+            lblMarketHeader.Text = LanguageHelper.Get("MarketHdr");
+            lblSafetyHeader.Text = LanguageHelper.Get("SafetyHdr");
+            lblStatsHeader.Text = LanguageHelper.Get("StatsHdr");
         }
 
         private void LoadHomeData()
