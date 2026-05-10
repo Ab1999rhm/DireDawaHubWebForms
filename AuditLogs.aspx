@@ -144,8 +144,8 @@
         <asp:Panel ID="pnlPagination" runat="server" BackColor="#0F172A" BorderStyle="Solid" BorderColor="#334155" BorderWidth="1px" Style="position: absolute; left: 20px; top: 730px; width: 820px; height: 50px; border-radius: 8px;">
             <asp:Label ID="lblPageInfo" runat="server" Text="Showing 1 - 25 of 1,420 events" ForeColor="#94A3B8" Font-Size="12px" Style="position: absolute; left: 20px; top: 18px;"></asp:Label>
             
-            <asp:Button ID="btnPrev" runat="server" Text="Prev" BackColor="#1E293B" ForeColor="#94A3B8" BorderStyle="Solid" BorderColor="#334155" BorderWidth="1px" Style="position: absolute; right: 80px; top: 10px; width: 60px; height: 30px; border-radius: 4px; cursor: pointer;" />
-            <asp:Button ID="btnNext" runat="server" Text="Next" BackColor="#1E293B" ForeColor="#94A3B8" BorderStyle="Solid" BorderColor="#334155" BorderWidth="1px" Style="position: absolute; right: 10px; top: 10px; width: 60px; height: 30px; border-radius: 4px; cursor: pointer;" />
+            <asp:Button ID="btnPrev" runat="server" Text="Prev" OnClick="btnPrev_Click" BackColor="#1E293B" ForeColor="#94A3B8" BorderStyle="Solid" BorderColor="#334155" BorderWidth="1px" Style="position: absolute; right: 80px; top: 10px; width: 60px; height: 30px; border-radius: 4px; cursor: pointer;" />
+            <asp:Button ID="btnNext" runat="server" Text="Next" OnClick="btnNext_Click" BackColor="#1E293B" ForeColor="#94A3B8" BorderStyle="Solid" BorderColor="#334155" BorderWidth="1px" Style="position: absolute; right: 10px; top: 10px; width: 60px; height: 30px; border-radius: 4px; cursor: pointer;" />
         </asp:Panel>
 
     </asp:Panel>

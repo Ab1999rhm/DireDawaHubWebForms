@@ -7,6 +7,18 @@ namespace DDCH
 {
     public partial class AuditLogs : System.Web.UI.Page
     {
+        private int PageSize = 5;
+
+        protected int CurrentPage
+        {
+            get
+            {
+                if (ViewState["CurrentPage"] == null) return 0;
+                return (int)ViewState["CurrentPage"];
+            }
+            set { ViewState["CurrentPage"] = value; }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserRole"] == null || Session["UserRole"].ToString() != "Admin")
@@ -16,6 +28,7 @@ namespace DDCH
 
             if (!IsPostBack)
             {
+                CurrentPage = 0;
                 LoadAuditLogs();
             }
         }
@@ -23,13 +36,16 @@ namespace DDCH
         private void LoadAuditLogs()
         {
             // Fetch Stats
-            lblStat1Value.Text = DatabaseHelper.ExecuteScalar("SELECT COUNT(*) FROM AuditLogs").ToString();
+            int totalLogs = Convert.ToInt32(DatabaseHelper.ExecuteScalar("SELECT COUNT(*) FROM AuditLogs"));
+            lblStat1Value.Text = totalLogs.ToString();
             lblStat2Value.Text = DatabaseHelper.ExecuteScalar("SELECT COUNT(*) FROM AuditLogs WHERE Severity = 'INFO'").ToString();
             lblStat3Value.Text = DatabaseHelper.ExecuteScalar("SELECT COUNT(*) FROM AuditLogs WHERE Severity = 'WARNING'").ToString();
             lblStat4Value.Text = DatabaseHelper.ExecuteScalar("SELECT COUNT(*) FROM AuditLogs WHERE Severity = 'CRITICAL'").ToString();
 
-            // Bind Logs (Manual mapping for Designer support)
-            DataTable dt = DatabaseHelper.ExecuteQuery("SELECT * FROM AuditLogs ORDER BY Timestamp DESC LIMIT 5");
+            // Bind Logs with Offset for Pagination
+            int offset = CurrentPage * PageSize;
+            DataTable dt = DatabaseHelper.ExecuteQuery(
+                $"SELECT * FROM AuditLogs ORDER BY Timestamp DESC LIMIT {PageSize} OFFSET {offset}");
             
             pnlRow1.Visible = (dt.Rows.Count > 0);
             if (pnlRow1.Visible) FillRow(dt.Rows[0], lblTimestamp1, lblAction1, lblDescription1, lblPerformedBy1, lblTarget1, lblSeverity1);
@@ -46,10 +62,35 @@ namespace DDCH
             pnlRow5.Visible = (dt.Rows.Count > 4);
             if (pnlRow5.Visible) FillRow(dt.Rows[4], lblTimestamp5, lblAction5, lblDescription5, lblPerformedBy5, lblTarget5, lblSeverity5);
             
-            lblPageInfo.Text = "Showing " + dt.Rows.Count + " of " + lblStat1Value.Text + " events";
+            // Update Pagination UI
+            int start = offset + 1;
+            int end = offset + dt.Rows.Count;
+            lblPageInfo.Text = $"Showing {start} - {end} of {totalLogs} events";
+            
+            btnPrev.Enabled = (CurrentPage > 0);
+            btnNext.Enabled = (end < totalLogs);
+
+            // Visual feedback for disabled buttons
+            btnPrev.Style["opacity"] = btnPrev.Enabled ? "1" : "0.5";
+            btnNext.Style["opacity"] = btnNext.Enabled ? "1" : "0.5";
         }
 
-        private void FillRow(DataRow row, System.Web.UI.WebControls.Label ts, System.Web.UI.WebControls.Label act, System.Web.UI.WebControls.Label desc, System.Web.UI.WebControls.Label by, System.Web.UI.WebControls.Label target, System.Web.UI.WebControls.Label sev)
+        protected void btnPrev_Click(object sender, EventArgs e)
+        {
+            if (CurrentPage > 0)
+            {
+                CurrentPage--;
+                LoadAuditLogs();
+            }
+        }
+
+        protected void btnNext_Click(object sender, EventArgs e)
+        {
+            CurrentPage++;
+            LoadAuditLogs();
+        }
+
+        private void FillRow(DataRow row, Label ts, Label act, Label desc, Label by, Label target, Label sev)
         {
             ts.Text = Convert.ToDateTime(row["Timestamp"]).ToString("yyyy-MM-dd HH:mm:ss");
             act.Text = row["Action"].ToString();
