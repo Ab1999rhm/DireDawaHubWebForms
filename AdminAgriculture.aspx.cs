@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Data;
 using System.Data.SQLite;
 
@@ -21,7 +21,7 @@ namespace DDCH
 
         private void LoadData()
         {
-            DataTable dt = DatabaseHelper.ExecuteQuery("SELECT PostId, Title, Status FROM Posts WHERE Category = @cat ORDER BY CreatedAt DESC LIMIT 3", new SQLiteParameter("@cat", "Agriculture"));
+            DataTable dt = DatabaseHelper.ExecuteQuery("SELECT PostId, Title, Status, ImagePath FROM Posts WHERE Category = @cat ORDER BY CreatedAt DESC LIMIT 3", new SQLiteParameter("@cat", "Agriculture"));
             
             pnlRow1.Visible = false; pnlRow2.Visible = false; pnlRow3.Visible = false;
 
@@ -30,6 +30,9 @@ namespace DDCH
                 pnlRow1.Visible = true;
                 lblTitle1.Text = dt.Rows[0]["Title"].ToString();
                 lblStatus1.Text = dt.Rows[0]["Status"].ToString();
+                string path = dt.Rows[0]["ImagePath"].ToString();
+                imgRow1.ImageUrl = !string.IsNullOrEmpty(path) ? "~/" + path : "";
+                imgRow1.Visible = !string.IsNullOrEmpty(path);
                 hdnId1.Value = dt.Rows[0]["PostId"].ToString();
             }
             if (dt.Rows.Count > 1)
@@ -37,6 +40,9 @@ namespace DDCH
                 pnlRow2.Visible = true;
                 lblTitle2.Text = dt.Rows[1]["Title"].ToString();
                 lblStatus2.Text = dt.Rows[1]["Status"].ToString();
+                string path = dt.Rows[1]["ImagePath"].ToString();
+                imgRow2.ImageUrl = !string.IsNullOrEmpty(path) ? "~/" + path : "";
+                imgRow2.Visible = !string.IsNullOrEmpty(path);
                 hdnId2.Value = dt.Rows[1]["PostId"].ToString();
             }
             if (dt.Rows.Count > 2)
@@ -44,6 +50,9 @@ namespace DDCH
                 pnlRow3.Visible = true;
                 lblTitle3.Text = dt.Rows[2]["Title"].ToString();
                 lblStatus3.Text = dt.Rows[2]["Status"].ToString();
+                string path = dt.Rows[2]["ImagePath"].ToString();
+                imgRow3.ImageUrl = !string.IsNullOrEmpty(path) ? "~/" + path : "";
+                imgRow3.Visible = !string.IsNullOrEmpty(path);
                 hdnId3.Value = dt.Rows[2]["PostId"].ToString();
             }
         }

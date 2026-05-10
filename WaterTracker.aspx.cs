@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Data;
 using System.Data.SQLite;
 
@@ -13,6 +13,9 @@ namespace DDCH
                 Response.Redirect("Login.aspx");
             }
 
+            // Ensure schema is updated
+            try { DatabaseHelper.ExecuteNonQuery("ALTER TABLE Posts ADD COLUMN ImagePath TEXT"); } catch { }
+
             if (!IsPostBack)
             {
                 LoadMyPosts();
@@ -23,14 +26,28 @@ namespace DDCH
         {
             if (string.IsNullOrWhiteSpace(txtTitle.Text)) return;
 
+            string imagePath = "";
+            if (fuPostImage.HasFile)
+            {
+                try
+                {
+                    string fileName = Guid.NewGuid().ToString() + "_" + System.IO.Path.GetFileName(fuPostImage.FileName);
+                    string savePath = Server.MapPath("~/Uploads/") + fileName;
+                    fuPostImage.SaveAs(savePath);
+                    imagePath = "Uploads/" + fileName;
+                }
+                catch { }
+            }
+
             string userId = Session["UserId"].ToString();
-            string sql = "INSERT INTO Posts (UserId, Category, Title, Content, Status, CreatedAt) VALUES (@uid, @cat, @title, @content, 'Pending', @time)";
+            string sql = "INSERT INTO Posts (UserId, Category, Title, Content, ImagePath, Status, CreatedAt) VALUES (@uid, @cat, @title, @content, @img, 'Pending', @time)";
             
             SQLiteParameter[] prms = {
                 new SQLiteParameter("@uid", userId),
                 new SQLiteParameter("@cat", "Water Tracker"),
                 new SQLiteParameter("@title", txtTitle.Text),
                 new SQLiteParameter("@content", txtContent.Text),
+                new SQLiteParameter("@img", imagePath),
                 new SQLiteParameter("@time", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"))
             };
 

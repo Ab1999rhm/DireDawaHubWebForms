@@ -74,7 +74,7 @@
                 <asp:Label ID="lblCat1" runat="server" Text="Category" Style="position: absolute; left: 10px; top: 15px; color: #F8FAFC; font-size: 14px;"></asp:Label>
                 <asp:Label ID="lblTitle1" runat="server" Text="Title" Style="position: absolute; left: 150px; top: 15px; color: #F8FAFC; font-size: 14px; width: 280px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"></asp:Label>
                 <asp:Label ID="lblStatus1" runat="server" Text="Pending" Style="position: absolute; left: 450px; top: 15px; color: #FCD34D; font-size: 12px; background-color: #451A03; padding: 5px 10px; border-radius: 4px;"></asp:Label>
-                <asp:Button ID="btnApproveCat1" runat="server" Text="Approve" BackColor="#10B981" ForeColor="White" BorderStyle="None" Style="position: absolute; right: 80px; top: 10px; padding: 5px 10px; border-radius: 4px; cursor: pointer;" OnClick="btnApproveCat1_Click" />
+                <asp:Button ID="btnApproveCat1" runat="server" Text="Approve" BackColor="#10B981" ForeColor="White" BorderStyle="None" Style="position: absolute; right: 148px; top: 6px; padding: 5px 10px; border-radius: 4px; cursor: pointer;" OnClick="btnApproveCat1_Click" />
                 <asp:Button ID="btnPurgeCat1" runat="server" Text="Purge" BackColor="#EF4444" ForeColor="White" BorderStyle="None" Style="position: absolute; right: 10px; top: 10px; padding: 5px 10px; border-radius: 4px; cursor: pointer;" OnClick="btnPurgeCat1_Click" />
                 <asp:HiddenField ID="hdnCatId1" runat="server" />
             </asp:Panel>

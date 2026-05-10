@@ -50,21 +50,30 @@
             <asp:Panel ID="pnlPostersList" runat="server" Style="position: absolute; left: 20px; top: 70px; width: 490px; height: 410px; overflow-y: auto;">
                 <!-- Fixed panels for drag-and-drop support -->
                 <asp:Panel ID="pnlPostItem1" runat="server" Visible="false" BackColor="#0F172A" Style="position: absolute; left: 0px; top: 0px; width: 470px; height: 120px; border-radius: 12px; padding: 15px; border: 1px solid rgba(255,255,255,0.05);">
-                    <div style="color: #60A5FA; font-size: 12px; font-weight: bold; margin-bottom: 5px;">COMMUNITY UPDATE</div>
-                    <asp:Label ID="lblPostTitle1" runat="server" Text="Title" Font-Bold="true" ForeColor="White" Font-Size="18px" Style="display: block;"></asp:Label>
-                    <asp:Label ID="lblPostContent1" runat="server" Text="Content" ForeColor="#94A3B8" Font-Size="13px" Style="display: block; margin-top: 5px; height: 40px; overflow: hidden;"></asp:Label>
+                    <asp:Image ID="imgPost1" runat="server" Style="position: absolute; left: 15px; top: 15px; width: 90px; height: 90px; border-radius: 8px; object-fit: cover; border: 1px solid #334155;" />
+                    <div style="position: absolute; left: 120px; top: 15px; right: 15px;">
+                        <div style="color: #60A5FA; font-size: 10px; font-weight: bold; text-transform: uppercase;">COMMUNITY UPDATE</div>
+                        <asp:Label ID="lblPostTitle1" runat="server" Text="Title" Font-Bold="true" ForeColor="White" Font-Size="16px" Style="display: block; margin-top: 2px;"></asp:Label>
+                        <asp:Label ID="lblPostContent1" runat="server" Text="Content" ForeColor="#94A3B8" Font-Size="12px" Style="display: block; margin-top: 5px; height: 45px; overflow: hidden;"></asp:Label>
+                    </div>
                 </asp:Panel>
 
                 <asp:Panel ID="pnlPostItem2" runat="server" Visible="false" BackColor="#0F172A" Style="position: absolute; left: 0px; top: 135px; width: 470px; height: 120px; border-radius: 12px; padding: 15px; border: 1px solid rgba(255,255,255,0.05);">
-                    <div style="color: #60A5FA; font-size: 12px; font-weight: bold; margin-bottom: 5px;">COMMUNITY UPDATE</div>
-                    <asp:Label ID="lblPostTitle2" runat="server" Text="Title" Font-Bold="true" ForeColor="White" Font-Size="18px" Style="display: block;"></asp:Label>
-                    <asp:Label ID="lblPostContent2" runat="server" Text="Content" ForeColor="#94A3B8" Font-Size="13px" Style="display: block; margin-top: 5px; height: 40px; overflow: hidden;"></asp:Label>
+                    <asp:Image ID="imgPost2" runat="server" Style="position: absolute; left: 15px; top: 15px; width: 90px; height: 90px; border-radius: 8px; object-fit: cover; border: 1px solid #334155;" />
+                    <div style="position: absolute; left: 120px; top: 15px; right: 15px;">
+                        <div style="color: #60A5FA; font-size: 10px; font-weight: bold; text-transform: uppercase;">COMMUNITY UPDATE</div>
+                        <asp:Label ID="lblPostTitle2" runat="server" Text="Title" Font-Bold="true" ForeColor="White" Font-Size="16px" Style="display: block; margin-top: 2px;"></asp:Label>
+                        <asp:Label ID="lblPostContent2" runat="server" Text="Content" ForeColor="#94A3B8" Font-Size="12px" Style="display: block; margin-top: 5px; height: 45px; overflow: hidden;"></asp:Label>
+                    </div>
                 </asp:Panel>
 
                 <asp:Panel ID="pnlPostItem3" runat="server" Visible="false" BackColor="#0F172A" Style="position: absolute; left: 0px; top: 270px; width: 470px; height: 120px; border-radius: 12px; padding: 15px; border: 1px solid rgba(255,255,255,0.05);">
-                    <div style="color: #60A5FA; font-size: 12px; font-weight: bold; margin-bottom: 5px;">COMMUNITY UPDATE</div>
-                    <asp:Label ID="lblPostTitle3" runat="server" Text="Title" Font-Bold="true" ForeColor="White" Font-Size="18px" Style="display: block;"></asp:Label>
-                    <asp:Label ID="lblPostContent3" runat="server" Text="Content" ForeColor="#94A3B8" Font-Size="13px" Style="display: block; margin-top: 5px; height: 40px; overflow: hidden;"></asp:Label>
+                    <asp:Image ID="imgPost3" runat="server" Style="position: absolute; left: 15px; top: 15px; width: 90px; height: 90px; border-radius: 8px; object-fit: cover; border: 1px solid #334155;" />
+                    <div style="position: absolute; left: 120px; top: 15px; right: 15px;">
+                        <div style="color: #60A5FA; font-size: 10px; font-weight: bold; text-transform: uppercase;">COMMUNITY UPDATE</div>
+                        <asp:Label ID="lblPostTitle3" runat="server" Text="Title" Font-Bold="true" ForeColor="White" Font-Size="16px" Style="display: block; margin-top: 2px;"></asp:Label>
+                        <asp:Label ID="lblPostContent3" runat="server" Text="Content" ForeColor="#94A3B8" Font-Size="12px" Style="display: block; margin-top: 5px; height: 45px; overflow: hidden;"></asp:Label>
+                    </div>
                 </asp:Panel>
             </asp:Panel>
         </asp:Panel>
