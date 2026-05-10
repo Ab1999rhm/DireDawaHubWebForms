@@ -12,6 +12,28 @@ namespace DDCH
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                ApplyLanguage();
+            }
+        }
+
+        private void ApplyLanguage()
+        {
+            lblRegHeader.Text = LanguageHelper.Get("RegHeader");
+            lblRegSub.Text = LanguageHelper.Get("RegSub");
+            lblReqTitle.Text = LanguageHelper.Get("DocReqs");
+            lblReq1.Text = LanguageHelper.Get("Req1");
+            lblReq2.Text = LanguageHelper.Get("Req2");
+            lblRegEmail.Text = LanguageHelper.Get("Email");
+            lblRegWorkId.Text = LanguageHelper.Get("WorkIdNum");
+            lblDocType.Text = LanguageHelper.Get("DocType");
+            lblUpload.Text = LanguageHelper.Get("UploadId");
+            lblRegPass.Text = LanguageHelper.Get("Password");
+            lblRegConf.Text = LanguageHelper.Get("ConfPass");
+            btnRegSubmit.Text = LanguageHelper.Get("RegSubmitBtn");
+            lblLoginText.Text = LanguageHelper.Get("AlreadyAcc");
+            lnkLogin.Text = LanguageHelper.Get("SignInLink");
         }
 
         protected void btnRegSubmit_Click(object sender, EventArgs e)

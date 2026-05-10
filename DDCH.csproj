@@ -310,6 +310,7 @@
       <DependentUpon>Contributor.Master</DependentUpon>
     </Compile>
     <Compile Include="DatabaseHelper.cs" />
+    <Compile Include="LanguageHelper.cs" />
     <Compile Include="UserService.cs" />
     <Compile Include="TestDb.aspx.cs">
       <DependentUpon>TestDb.aspx</DependentUpon>
