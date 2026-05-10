@@ -1,0 +1,45 @@
+namespace DDCH {
+    public partial class AdminMaster {
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder HeadContent;
+        protected global::System.Web.UI.WebControls.Panel pnlMasterCanvas;
+        protected global::System.Web.UI.WebControls.Panel pnlSidebar;
+        protected global::System.Web.UI.WebControls.Panel pnlSidebarHeader;
+        protected global::System.Web.UI.WebControls.Label lblLogo;
+        protected global::System.Web.UI.WebControls.Button btnCollapse;
+        protected global::System.Web.UI.WebControls.Panel pnlLang;
+        protected global::System.Web.UI.WebControls.Label lblLangIcon;
+        protected global::System.Web.UI.WebControls.DropDownList ddlLanguage;
+        protected global::System.Web.UI.WebControls.Panel pnlNavLinks;
+        protected global::System.Web.UI.WebControls.Label lblAdminSection;
+        protected global::System.Web.UI.WebControls.HyperLink lnkAnalytics;
+        protected global::System.Web.UI.WebControls.HyperLink lnkUsers;
+        protected global::System.Web.UI.WebControls.HyperLink lnkCatalog;
+        protected global::System.Web.UI.WebControls.HyperLink lnkAudit;
+        protected global::System.Web.UI.WebControls.Label lblWorkspaceSection;
+        protected global::System.Web.UI.WebControls.HyperLink lnkDashboard;
+        protected global::System.Web.UI.WebControls.HyperLink lnkPosters;
+        protected global::System.Web.UI.WebControls.Label badgePosters;
+        protected global::System.Web.UI.WebControls.HyperLink lnkWater;
+        protected global::System.Web.UI.WebControls.Label badgeWater;
+        protected global::System.Web.UI.WebControls.HyperLink lnkHealth;
+        protected global::System.Web.UI.WebControls.Label badgeHealth;
+        protected global::System.Web.UI.WebControls.HyperLink lnkJobs;
+        protected global::System.Web.UI.WebControls.Label badgeJobs;
+        protected global::System.Web.UI.WebControls.HyperLink lnkAgri;
+        protected global::System.Web.UI.WebControls.Label badgeAgri;
+        protected global::System.Web.UI.WebControls.HyperLink lnkSafety;
+        protected global::System.Web.UI.WebControls.Label badgeSafety;
+        protected global::System.Web.UI.WebControls.HyperLink lnkStats;
+        protected global::System.Web.UI.WebControls.Label badgeStats;
+        protected global::System.Web.UI.WebControls.Panel pnlDivider;
+        protected global::System.Web.UI.WebControls.HyperLink lnkPublic;
+        protected global::System.Web.UI.WebControls.Panel pnlSidebarFooter;
+        protected global::System.Web.UI.WebControls.Panel pnlAvatar;
+        protected global::System.Web.UI.WebControls.Label lblAvatarText;
+        protected global::System.Web.UI.WebControls.Label lblUserName;
+        protected global::System.Web.UI.WebControls.Button btnLogout;
+        protected global::System.Web.UI.WebControls.Panel pnlMainContentArea;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder Scripts;
+    }
+}

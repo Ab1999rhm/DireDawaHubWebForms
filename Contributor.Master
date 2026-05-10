@@ -1,0 +1,135 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Contributor.Master.cs" Inherits="DDCH.ContributorMaster" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - Contributor Dashboard</title>
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server"></asp:ContentPlaceHolder>
+    <style type="text/css">
+        :root {
+            --contributor-primary: #10b981;
+            --contributor-primary-light: #34d399;
+            --contributor-primary-dark: #047857;
+            --contributor-gray-100: #f1f5f9;
+            --contributor-gray-200: #e2e8f0;
+            --contributor-gray-400: #94a3b8;
+            --contributor-gray-600: #475569;
+            --contributor-gray-800: #1e293b;
+            --contributor-dark: #0f172a;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+        }
+        
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            margin: 0; 
+            background: #0f172a; 
+            color: #f8fafc;
+        }
+        
+        .sidebar-link {
+            text-decoration: none;
+            color: #94a3b8;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            border-left: 4px solid transparent;
+            transition: 0.2s;
+        }
+        .sidebar-link:hover {
+            background: rgba(255,255,255,0.05);
+            color: white;
+            border-left-color: #10b981;
+        }
+        .sidebar-link.active {
+            background: rgba(16, 185, 129, 0.15);
+            color: white;
+            border-left-color: #10b981;
+        }
+    </style>
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server"></asp:ScriptManager>
+        
+        <asp:Panel ID="pnlContributorMasterCanvas" runat="server" BackColor="#0F172A" Style="position: relative; width: 1200px; height: 900px; margin: 0 auto;">
+            
+            <asp:Panel ID="pnlSidebar" runat="server" BackColor="#1E293B" BorderStyle="Solid" BorderColor="#334155" BorderWidth="1px" Style="position: absolute; left: 0px; top: 0px; width: 280px; height: 900px; z-index: 10;">
+                
+                <asp:Panel ID="pnlSidebarHeader" runat="server" BackColor="#0F172A" BorderStyle="Solid" BorderColor="#334155" BorderWidth="1px" Style="position: absolute; left: 0px; top: 0px; width: 278px; height: 70px;">
+                    <asp:Label ID="lblLogo" runat="server" Text="Dire Dawa Hub " Font-Bold="true" Font-Size="18px" ForeColor="White" Style="position: absolute; left: 20px; top: 25px;"></asp:Label>
+                    <asp:Button ID="btnCollapse" runat="server" Text="◀" BackColor="#334155" ForeColor="White" BorderStyle="None" Style="position: absolute; right: 20px; top: 20px; width: 30px; height: 30px; border-radius: 6px; cursor: pointer;" OnClientClick="collapseSidebar(); return false;" />
+                </asp:Panel>
+                <script type="text/javascript">
+                    function collapseSidebar() {
+                        document.getElementById('<%= pnlSidebar.ClientID %>').style.left = '-280px';
+                        document.getElementById('<%= pnlMainContentArea.ClientID %>').style.left = '0px';
+                        document.getElementById('<%= pnlMainContentArea.ClientID %>').style.width = '1200px';
+                        document.getElementById('btnExpandSidebar').style.display = 'block';
+                    }
+                    function expandSidebar() {
+                        document.getElementById('<%= pnlSidebar.ClientID %>').style.left = '0px';
+                        document.getElementById('<%= pnlMainContentArea.ClientID %>').style.left = '280px';
+                        document.getElementById('<%= pnlMainContentArea.ClientID %>').style.width = '920px';
+                        document.getElementById('btnExpandSidebar').style.display = 'none';
+                    }
+                </script>
+
+                <asp:Panel ID="pnlLang" runat="server" BackColor="#334155" Style="position: absolute; left: 20px; top: 85px; width: 240px; height: 40px; border-radius: 8px;">
+                    <asp:Label ID="lblLangIcon" runat="server" Text="" ForeColor="White" Style="position: absolute; left: 10px; top: 10px;"></asp:Label>
+                    <asp:DropDownList ID="ddlLanguage" runat="server" BackColor="#334155" ForeColor="White" BorderStyle="None" Style="position: absolute; left: 35px; top: 10px; width: 190px; outline: none; cursor: pointer;">
+                        <asp:ListItem Text="Afaan Oromoo" Value="om"></asp:ListItem>
+                        <asp:ListItem Text="English" Value="en"></asp:ListItem>
+                        <asp:ListItem Text="Amharic" Value="am"></asp:ListItem>
+                        <asp:ListItem Text="Af Somali" Value="so"></asp:ListItem>
+                    </asp:DropDownList>
+                </asp:Panel>
+
+                <asp:Panel ID="pnlNavLinks" runat="server" Style="position: absolute; left: 0px; top: 140px; width: 280px; height: 600px; overflow-y: auto;">
+                    
+                    <asp:Label ID="lblContributorSection" runat="server" Text="DATA WORKSPACE" Font-Bold="true" Font-Size="11px" ForeColor="#94A3B8" Style="position: absolute; left: 20px; top: 10px; letter-spacing: 1px;"></asp:Label>
+                    <asp:HyperLink ID="lnkDashboard" runat="server" NavigateUrl="~/Contributor.aspx" ForeColor="White" BackColor="#10B981" Font-Bold="true" Style="position: absolute; left: 0px; top: 40px; width: 260px; height: 20px; padding: 10px 10px 10px 20px; text-decoration: none;">‍ My Dashboard</asp:HyperLink>
+                    <asp:HyperLink ID="lnkPosters" runat="server" NavigateUrl="~/CommunityPosters.aspx" ForeColor="#94A3B8" Style="position: absolute; left: 0px; top: 80px; width: 260px; height: 20px; padding: 10px 10px 10px 20px; text-decoration: none;">️ Community Posters</asp:HyperLink>
+                    
+                    <asp:Label ID="lblWorkspaceSection" runat="server" Text="DATA ENTRY" Font-Bold="true" Font-Size="11px" ForeColor="#94A3B8" Style="position: absolute; left: 20px; top: 130px; letter-spacing: 1px;"></asp:Label>
+                    <asp:HyperLink ID="lnkWater" runat="server" NavigateUrl="~/WaterTracker.aspx" ForeColor="#94A3B8" Style="position: absolute; left: 0px; top: 160px; width: 260px; height: 20px; padding: 10px 10px 10px 20px; text-decoration: none;"> Water Tracker</asp:HyperLink>
+                    <asp:HyperLink ID="lnkHealth" runat="server" NavigateUrl="~/HealthDirectory.aspx" ForeColor="#94A3B8" Style="position: absolute; left: 0px; top: 200px; width: 260px; height: 20px; padding: 10px 10px 10px 20px; text-decoration: none;"> Health Directory</asp:HyperLink>
+                    <asp:HyperLink ID="lnkJobs" runat="server" NavigateUrl="~/JobBoard.aspx" ForeColor="#94A3B8" Style="position: absolute; left: 0px; top: 240px; width: 260px; height: 20px; padding: 10px 10px 10px 20px; text-decoration: none;"> Job Board</asp:HyperLink>
+                    <asp:HyperLink ID="lnkAgri" runat="server" NavigateUrl="~/Agriculture.aspx" ForeColor="#94A3B8" Style="position: absolute; left: 0px; top: 280px; width: 260px; height: 20px; padding: 10px 10px 10px 20px; text-decoration: none;"> Agriculture</asp:HyperLink>
+                    <asp:HyperLink ID="lnkSafety" runat="server" NavigateUrl="~/PublicSafety.aspx" ForeColor="#94A3B8" Style="position: absolute; left: 0px; top: 320px; width: 260px; height: 20px; padding: 10px 10px 10px 20px; text-decoration: none;"> Public Safety</asp:HyperLink>
+                    <asp:HyperLink ID="lnkStats" runat="server" NavigateUrl="~/Statistics.aspx" ForeColor="#94A3B8" Style="position: absolute; left: 0px; top: 360px; width: 260px; height: 20px; padding: 10px 10px 10px 20px; text-decoration: none;"> Statistics</asp:HyperLink>
+
+                    <asp:Panel ID="pnlDivider" runat="server" BackColor="#334155" Style="position: absolute; left: 20px; top: 400px; width: 240px; height: 1px;"></asp:Panel>
+
+                    <asp:HyperLink ID="lnkPublic" runat="server" NavigateUrl="~/Default.aspx" ForeColor="#94A3B8" Style="position: absolute; left: 0px; top: 420px; width: 260px; height: 20px; padding: 10px 10px 10px 20px; text-decoration: none;"> View Public Site</asp:HyperLink>
+                </asp:Panel>
+
+                <asp:Panel ID="pnlSidebarFooter" runat="server" BackColor="#0F172A" BorderStyle="Solid" BorderColor="#334155" BorderWidth="1px" Style="position: absolute; left: 0px; top: 780px; width: 278px; height: 120px;">
+                    <asp:Panel ID="pnlAvatar" runat="server" BackColor="#10B981" Style="position: absolute; left: 20px; top: 20px; width: 32px; height: 32px; border-radius: 16px;">
+                        <asp:Label ID="lblAvatarText" runat="server" Text="C" ForeColor="White" Font-Bold="true" Style="position: absolute; left: 11px; top: 7px;"></asp:Label>
+                    </asp:Panel>
+                    <asp:Label ID="lblUserName" runat="server" Text="Contributor User" ForeColor="White" Font-Size="14px" Style="position: absolute; left: 60px; top: 26px;"></asp:Label>
+                    
+                    <asp:Button ID="btnLogout" runat="server" Text="Logout" BackColor="Transparent" ForeColor="#EF4444" BorderStyle="Solid" BorderColor="#EF4444" BorderWidth="1px" Style="position: absolute; left: 20px; top: 65px; width: 240px; height: 35px; border-radius: 6px; cursor: pointer; font-weight: bold;" OnClick="btnLogout_Click" />
+                </asp:Panel>
+
+            </asp:Panel>
+
+            <asp:Panel ID="pnlMainContentArea" runat="server" BackColor="#0F172A" Style="position: absolute; left: 280px; top: 0px; width: 920px; height: 900px; overflow-y: auto;">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
+            </asp:Panel>
+
+            <button type="button" id="btnExpandSidebar" style="position: absolute; left: 20px; top: 20px; width: 30px; height: 30px; border-radius: 6px; background-color: #334155; color: white; border: none; cursor: pointer; display: none; z-index: 1000;" onclick="expandSidebar()">&gt;</button>
+        </asp:Panel>
+
+        <asp:ContentPlaceHolder ID="Scripts" runat="server"></asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>
+
