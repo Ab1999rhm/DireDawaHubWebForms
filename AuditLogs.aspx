@@ -109,7 +109,7 @@
                 <asp:Label ID="lblDescription2" runat="server" Text="" Style="position: absolute; left: 280px; top: 15px; color: #F8FAFC; font-size: 14px; width: 260px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" />
                 <asp:Label ID="lblPerformedBy2" runat="server" Text="" Style="position: absolute; left: 560px; top: 15px; color: #F8FAFC; font-size: 13px;" />
                 <asp:Label ID="lblTarget2" runat="server" Text="" Style="position: absolute; left: 680px; top: 15px; color: #F8FAFC; font-size: 11px; background: #334155; padding: 2px 5px; border-radius: 4px;" />
-                <asp:Label ID="lblSeverity2" runat="server" Text="" Style="position: absolute; left: 740px; top: 12px; padding: 4px 8px; border-radius: 20px; font-size: 11px; font-weight: bold;" />
+                <asp:Label ID="lblSeverity2" runat="server" Text="" Style="position: absolute; left: 740px; top: 12px; padding: 4px 8px; border-radius: 20px; font-size: 11px; font-weight: bold; width: 59px;" />
             </asp:Panel>
 
             <asp:Panel ID="pnlRow3" runat="server" Visible="false" Style="position: absolute; left: 0px; top: 140px; width: 820px; height: 50px; border-bottom: 1px solid #1E293B;">

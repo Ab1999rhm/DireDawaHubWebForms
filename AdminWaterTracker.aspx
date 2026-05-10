@@ -13,16 +13,18 @@
             </asp:Panel>
 
             <asp:Panel ID="pnlRow1" runat="server" Visible="false" Style="position: absolute; left: 0px; top: 40px; width: 820px; height: 60px; border-bottom: 1px solid #0F172A;">
-                <asp:Label ID="lblTitle1" runat="server" Text="Title" Style="position: absolute; left: 20px; top: 20px; color: #F8FAFC; font-size: 14px;"></asp:Label>
-                <asp:Label ID="lblStatus1" runat="server" Text="Pending" Style="position: absolute; left: 337px; top: 19px; color: #FCD34D; font-size: 12px; background-color: #451A03; padding: 5px 10px; border-radius: 4px;"></asp:Label>
-                <asp:Button ID="btnApprove1" runat="server" Text="Approve" BackColor="#10B981" ForeColor="White" BorderStyle="None" Style="position: absolute; right: 260px; top: 11px; padding: 6px 12px; border-radius: 4px; cursor: pointer;" OnClick="btnApprove1_Click" />
+                <asp:Image ID="imgRow1" runat="server" Style="position: absolute; left: 10px; top: 10px; width: 40px; height: 40px; border-radius: 4px; border: 1px solid #334155; object-fit: cover;" />
+                <asp:Label ID="lblTitle1" runat="server" Text="Title" Style="position: absolute; left: 60px; top: 20px; color: #F8FAFC; font-size: 14px;"></asp:Label>
+                <asp:Label ID="lblStatus1" runat="server" Text="Pending" Style="position: absolute; left: 450px; top: 20px; color: #FCD34D; font-size: 12px; background-color: #451A03; padding: 5px 10px; border-radius: 4px;"></asp:Label>
+                <asp:Button ID="btnApprove1" runat="server" Text="Approve" BackColor="#10B981" ForeColor="White" BorderStyle="None" Style="position: absolute; right: 160px; top: 15px; padding: 6px 12px; border-radius: 4px; cursor: pointer;" OnClick="btnApprove1_Click" />
                 <asp:Button ID="btnDeactivate1" runat="server" Text="Deactivate" BackColor="#F59E0B" ForeColor="White" BorderStyle="None" Style="position: absolute; right: 70px; top: 15px; padding: 6px 12px; border-radius: 4px; cursor: pointer;" OnClick="btnDeactivate1_Click" />
                 <asp:Button ID="btnDelete1" runat="server" Text="Delete" BackColor="#EF4444" ForeColor="White" BorderStyle="None" Style="position: absolute; right: 10px; top: 15px; padding: 6px 12px; border-radius: 4px; cursor: pointer;" OnClick="btnDelete1_Click" />
                 <asp:HiddenField ID="hdnId1" runat="server" />
             </asp:Panel>
 
             <asp:Panel ID="pnlRow2" runat="server" Visible="false" Style="position: absolute; left: 0px; top: 100px; width: 820px; height: 60px; border-bottom: 1px solid #0F172A;">
-                <asp:Label ID="lblTitle2" runat="server" Text="Title" Style="position: absolute; left: 20px; top: 20px; color: #F8FAFC; font-size: 14px;"></asp:Label>
+                <asp:Image ID="imgRow2" runat="server" Style="position: absolute; left: 10px; top: 10px; width: 40px; height: 40px; border-radius: 4px; border: 1px solid #334155; object-fit: cover;" />
+                <asp:Label ID="lblTitle2" runat="server" Text="Title" Style="position: absolute; left: 60px; top: 20px; color: #F8FAFC; font-size: 14px;"></asp:Label>
                 <asp:Label ID="lblStatus2" runat="server" Text="Pending" Style="position: absolute; left: 450px; top: 20px; color: #FCD34D; font-size: 12px; background-color: #451A03; padding: 5px 10px; border-radius: 4px;"></asp:Label>
                 <asp:Button ID="btnApprove2" runat="server" Text="Approve" BackColor="#10B981" ForeColor="White" BorderStyle="None" Style="position: absolute; right: 160px; top: 15px; padding: 6px 12px; border-radius: 4px; cursor: pointer;" OnClick="btnApprove2_Click" />
                 <asp:Button ID="btnDeactivate2" runat="server" Text="Deactivate" BackColor="#F59E0B" ForeColor="White" BorderStyle="None" Style="position: absolute; right: 70px; top: 15px; padding: 6px 12px; border-radius: 4px; cursor: pointer;" OnClick="btnDeactivate2_Click" />
@@ -31,7 +33,8 @@
             </asp:Panel>
 
             <asp:Panel ID="pnlRow3" runat="server" Visible="false" Style="position: absolute; left: 0px; top: 160px; width: 820px; height: 60px; border-bottom: 1px solid #0F172A;">
-                <asp:Label ID="lblTitle3" runat="server" Text="Title" Style="position: absolute; left: 20px; top: 20px; color: #F8FAFC; font-size: 14px;"></asp:Label>
+                <asp:Image ID="imgRow3" runat="server" Style="position: absolute; left: 10px; top: 10px; width: 40px; height: 40px; border-radius: 4px; border: 1px solid #334155; object-fit: cover;" />
+                <asp:Label ID="lblTitle3" runat="server" Text="Title" Style="position: absolute; left: 60px; top: 20px; color: #F8FAFC; font-size: 14px;"></asp:Label>
                 <asp:Label ID="lblStatus3" runat="server" Text="Pending" Style="position: absolute; left: 450px; top: 20px; color: #FCD34D; font-size: 12px; background-color: #451A03; padding: 5px 10px; border-radius: 4px;"></asp:Label>
                 <asp:Button ID="btnApprove3" runat="server" Text="Approve" BackColor="#10B981" ForeColor="White" BorderStyle="None" Style="position: absolute; right: 160px; top: 15px; padding: 6px 12px; border-radius: 4px; cursor: pointer;" OnClick="btnApprove3_Click" />
                 <asp:Button ID="btnDeactivate3" runat="server" Text="Deactivate" BackColor="#F59E0B" ForeColor="White" BorderStyle="None" Style="position: absolute; right: 70px; top: 15px; padding: 6px 12px; border-radius: 4px; cursor: pointer;" OnClick="btnDeactivate3_Click" />

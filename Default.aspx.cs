@@ -35,7 +35,7 @@ namespace DDCH
 
                 // Community Posters (Fixed Panels)
                 var postersDt = DatabaseHelper.ExecuteQuery(
-                    "SELECT Title, Content FROM Posts WHERE Category = 'Community Posters' AND Status = 'Approved' ORDER BY CreatedAt DESC LIMIT 3");
+                    "SELECT Title, Content, ImagePath FROM Posts WHERE Category = 'Community Posters' AND Status = 'Approved' ORDER BY CreatedAt DESC LIMIT 3");
                 BindPostersToPanels(postersDt);
 
                 // Quick View Data
@@ -69,16 +69,22 @@ namespace DDCH
             if (dt.Rows.Count > 0) {
                 lblPostTitle1.Text = dt.Rows[0]["Title"].ToString();
                 lblPostContent1.Text = dt.Rows[0]["Content"].ToString();
+                string path = dt.Rows[0]["ImagePath"].ToString();
+                imgPost1.ImageUrl = !string.IsNullOrEmpty(path) ? "~/" + path : "https://img.icons8.com/ios-filled/100/ffffff/image.png";
                 pnlPostItem1.Visible = true;
             }
             if (dt.Rows.Count > 1) {
                 lblPostTitle2.Text = dt.Rows[1]["Title"].ToString();
                 lblPostContent2.Text = dt.Rows[1]["Content"].ToString();
+                string path = dt.Rows[1]["ImagePath"].ToString();
+                imgPost2.ImageUrl = !string.IsNullOrEmpty(path) ? "~/" + path : "https://img.icons8.com/ios-filled/100/ffffff/image.png";
                 pnlPostItem2.Visible = true;
             }
             if (dt.Rows.Count > 2) {
                 lblPostTitle3.Text = dt.Rows[2]["Title"].ToString();
                 lblPostContent3.Text = dt.Rows[2]["Content"].ToString();
+                string path = dt.Rows[2]["ImagePath"].ToString();
+                imgPost3.ImageUrl = !string.IsNullOrEmpty(path) ? "~/" + path : "https://img.icons8.com/ios-filled/100/ffffff/image.png";
                 pnlPostItem3.Visible = true;
             }
         }

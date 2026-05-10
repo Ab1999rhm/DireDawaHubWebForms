@@ -6,7 +6,7 @@
         <asp:Label ID="lblHeaderTitle" runat="server" Text="Job Board Data Entry" Font-Bold="true" Font-Size="22px" ForeColor="White" Style="position: absolute; left: 20px; top: 40px;"></asp:Label>
 
         <!-- Data Entry Form -->
-        <asp:Panel ID="pnlEntryForm" runat="server" BackColor="#1E293B" Style="position: absolute; left: 20px; top: 90px; width: 820px; height: 260px; border-radius: 8px; padding: 20px;">
+        <asp:Panel ID="pnlEntryForm" runat="server" BackColor="#1E293B" Style="position: absolute; left: 20px; top: 90px; width: 820px; height: 330px; border-radius: 8px; padding: 20px;">
             <asp:Label ID="lblFormTitle" runat="server" Text="New Submission" Font-Bold="true" ForeColor="White" Font-Size="16px" Style="position: absolute; left: 20px; top: 15px;"></asp:Label>
             
             <asp:Label ID="lblPostTitle" runat="server" Text="Title:" ForeColor="#94A3B8" Font-Size="13px" Style="position: absolute; left: 20px; top: 60px;"></asp:Label>
@@ -15,8 +15,11 @@
             <asp:Label ID="lblPostContent" runat="server" Text="Details/Data:" ForeColor="#94A3B8" Font-Size="13px" Style="position: absolute; left: 20px; top: 125px;"></asp:Label>
             <asp:TextBox ID="txtContent" runat="server" TextMode="MultiLine" Rows="3" BackColor="#0F172A" ForeColor="White" BorderStyle="Solid" BorderColor="#334155" BorderWidth="1px" Style="position: absolute; left: 20px; top: 145px; width: 780px; padding: 8px; border-radius: 4px; resize: none;"></asp:TextBox>
             
-            <asp:Button ID="btnSubmit" runat="server" Text="Submit to Admin for Review" BackColor="#10B981" ForeColor="White" BorderStyle="None" Style="position: absolute; right: 20px; top: 220px; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: bold;" OnClick="btnSubmit_Click" />
-            <asp:Label ID="lblSuccess" runat="server" ForeColor="#10B981" Visible="false" Style="position: absolute; right: 240px; top: 228px; font-weight: bold;"></asp:Label>
+            <asp:Label ID="lblPostImage" runat="server" Text="Attach Photo (Optional):" ForeColor="#94A3B8" Font-Size="13px" Style="position: absolute; left: 20px; top: 215px;"></asp:Label>
+            <asp:FileUpload ID="fuPostImage" runat="server" Style="position: absolute; left: 20px; top: 235px; color: #94A3B8;" />
+
+            <asp:Button ID="btnSubmit" runat="server" Text="Submit to Admin for Review" BackColor="#10B981" ForeColor="White" BorderStyle="None" Style="position: absolute; right: 20px; top: 280px; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: bold;" OnClick="btnSubmit_Click" />
+            <asp:Label ID="lblSuccess" runat="server" ForeColor="#10B981" Visible="false" Style="position: absolute; right: 240px; top: 288px; font-weight: bold;"></asp:Label>
         </asp:Panel>
 
         <!-- My Recent Submissions -->

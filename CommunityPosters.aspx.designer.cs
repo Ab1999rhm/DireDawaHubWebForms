@@ -1,4 +1,4 @@
-﻿namespace DDCH {
+namespace DDCH {
     public partial class CommunityPosters {
         protected global::System.Web.UI.WebControls.Panel pnlCanvas;
         protected global::System.Web.UI.WebControls.Label lblBreadcrumb;
@@ -10,6 +10,7 @@
         protected global::System.Web.UI.WebControls.TextBox txtTitle;
         protected global::System.Web.UI.WebControls.Label lblPostContent;
         protected global::System.Web.UI.WebControls.TextBox txtContent;
+        protected global::System.Web.UI.WebControls.FileUpload fuPostImage;
         protected global::System.Web.UI.WebControls.Button btnSubmit;
         protected global::System.Web.UI.WebControls.Label lblSuccess;
 
