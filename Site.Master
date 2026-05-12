@@ -4,7 +4,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - Dire Dawa Hub</title>
+    <title><%: Page != null ? Page.Title : "Dire Dawa Hub" %> - Dire Dawa Hub</title>
     <asp:ContentPlaceHolder ID="HeadContent" runat="server"></asp:ContentPlaceHolder>
     <style type="text/css">
         body { 
