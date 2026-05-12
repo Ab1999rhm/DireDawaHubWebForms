@@ -5,7 +5,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - Contributor Dashboard</title>
+    <title><%: Page != null ? Page.Title : "Contributor Dashboard" %> - Contributor Dashboard</title>
     <asp:ContentPlaceHolder ID="HeadContent" runat="server"></asp:ContentPlaceHolder>
     <style type="text/css">
         :root {
