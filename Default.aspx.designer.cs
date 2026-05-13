@@ -276,6 +276,15 @@ namespace DDCH
         protected global::System.Web.UI.WebControls.Panel pnlPostItem1;
 
         /// <summary>
+        /// imgPost1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgPost1;
+
+        /// <summary>
         /// lblPostTitle1 control.
         /// </summary>
         /// <remarks>
@@ -294,12 +303,6 @@ namespace DDCH
         protected global::System.Web.UI.WebControls.Label lblPostContent1;
 
         /// <summary>
-        /// imgPost1 control.
-        /// </summary>
-        protected global::System.Web.UI.WebControls.Image imgPost1;
-
-
-        /// <summary>
         /// pnlPostItem2 control.
         /// </summary>
         /// <remarks>
@@ -307,6 +310,15 @@ namespace DDCH
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlPostItem2;
+
+        /// <summary>
+        /// imgPost2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgPost2;
 
         /// <summary>
         /// lblPostTitle2 control.
@@ -327,12 +339,6 @@ namespace DDCH
         protected global::System.Web.UI.WebControls.Label lblPostContent2;
 
         /// <summary>
-        /// imgPost2 control.
-        /// </summary>
-        protected global::System.Web.UI.WebControls.Image imgPost2;
-
-
-        /// <summary>
         /// pnlPostItem3 control.
         /// </summary>
         /// <remarks>
@@ -340,6 +346,15 @@ namespace DDCH
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlPostItem3;
+
+        /// <summary>
+        /// imgPost3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgPost3;
 
         /// <summary>
         /// lblPostTitle3 control.
@@ -358,12 +373,6 @@ namespace DDCH
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPostContent3;
-
-        /// <summary>
-        /// imgPost3 control.
-        /// </summary>
-        protected global::System.Web.UI.WebControls.Image imgPost3;
-
 
         /// <summary>
         /// WeatherSection control.
