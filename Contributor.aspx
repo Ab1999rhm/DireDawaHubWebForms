@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Contributor Dashboard" Language="C#" MasterPageFile="~/Contributor.Master" AutoEventWireup="true" CodeBehind="Contributor.aspx.cs" Inherits="DDCH.ContributorPage" %>
+<%@ Page Title="Contributor Dashboard" Language="C#" MasterPageFile="~/Contributor.Master" AutoEventWireup="true" CodeFile="Contributor.aspx.cs" Inherits="DDCH.ContributorPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server"></asp:Content>
 
