@@ -102,7 +102,19 @@ namespace DDCH
                 ["AdminTitleHdr"] = "Title",
                 ["AdminIdentityManager"] = "Identity & Role Manager",
                 ["AdminTotalUsers"] = "Total Users",
-                ["AdminVerifyMunicipal"] = "Verify municipal work IDs and authorize contributor credentials."
+                ["AdminVerifyMunicipal"] = "Verify municipal work IDs and authorize contributor credentials.",
+                ["ContributorWorkspace"] = "Contributor Workspace",
+                ["ContributorHub"] = "Data Management and Content Creation Hub",
+                ["ContributorTotalPosts"] = "TOTAL POSTS",
+                ["ContributorApproved"] = "APPROVED",
+                ["ContributorPending"] = "PENDING",
+                ["ContributorDeactivated"] = "DEACTIVATED",
+                ["ContributorQuickActions"] = "Quick Actions",
+                ["ContributorRecentActivities"] = "Recent Activities",
+                ["ContributorPostTitle"] = "Post Title",
+                ["ContributorCategory"] = "Category",
+                ["ContributorStatus"] = "Status",
+                ["ContributorNoActivity"] = "No activity yet. Start by submitting a post using the sidebar links above!"
             },
             ["am"] = new Dictionary<string, string>()
             {
@@ -198,7 +210,19 @@ namespace DDCH
                 ["AdminTitleHdr"] = "ርዕስ",
                 ["AdminIdentityManager"] = "የማንነት እና የተግባር አስተዳዳሪ",
                 ["AdminTotalUsers"] = "ጠቅላላ ተጠቃሚዎች",
-                ["AdminVerifyMunicipal"] = "የማዘጋጃ ቤት የሥራ መታወቂያዎችን ያረጋግጡ እና የአስተዋጽኦ አድራጊ ምስክርነቶችን ይፍቀዱ።"
+                ["AdminVerifyMunicipal"] = "የማዘጋጃ ቤት የሥራ መታወቂያዎችን ያረጋግጡ እና የአስተዋጽኦ አድራጊ ምስክርነቶችን ይፍቀዱ።",
+                ["ContributorWorkspace"] = "የአስተዋጽኦ አድራጊ የሥራ ቦታ",
+                ["ContributorHub"] = "የመረጃ አያያዝ እና የይዘት ፈጠራ ማዕከል",
+                ["ContributorTotalPosts"] = "ጠቅላላ ልጥፎች",
+                ["ContributorApproved"] = "የጸደቁ",
+                ["ContributorPending"] = "በመጠባበቅ ላይ ያሉ",
+                ["ContributorDeactivated"] = "የተሰረዙ",
+                ["ContributorQuickActions"] = "ፈጣን እርምጃዎች",
+                ["ContributorRecentActivities"] = "የቅርብ ጊዜ እንቅስቃሴዎች",
+                ["ContributorPostTitle"] = "የልጥፍ ርዕስ",
+                ["ContributorCategory"] = "ምድብ",
+                ["ContributorStatus"] = "ሁኔታ",
+                ["ContributorNoActivity"] = "ገና ምንም እንቅስቃሴ የለም። ከላይ ያሉትን የጎን አሞሌ አገናኞችን በመጠቀም ልጥፍ በማስገባት ይጀምሩ!"
             },
             ["om"] = new Dictionary<string, string>()
             {
@@ -294,7 +318,19 @@ namespace DDCH
                 ["AdminTitleHdr"] = "Mata-duree",
                 ["AdminIdentityManager"] = "Bulchiinsa Eenyummaa fi Gahee",
                 ["AdminTotalUsers"] = "Fayyadamttoota Waliigalaa",
-                ["AdminVerifyMunicipal"] = "Eenyummaa hojii bulchiinsa magaalaa mirkaneessuu fi ragaa gumaachituu hayyamuu."
+                ["AdminVerifyMunicipal"] = "Eenyummaa hojii bulchiinsa magaalaa mirkaneessuu fi ragaa gumaachituu hayyamuu.",
+                ["ContributorWorkspace"] = "Bakka Hojii Gumaachituu",
+                ["ContributorHub"] = "Giddu-gala Bulchiinsa Data fi Hojii Kalaqaa",
+                ["ContributorTotalPosts"] = "POSTIIWWAN WALIIGALAA",
+                ["ContributorApproved"] = "MIRKANEESSAME",
+                ["ContributorPending"] = "EEGGANNAA IRRA",
+                ["ContributorDeactivated"] = "HAGAGAME",
+                ["ContributorQuickActions"] = "Gocha Ariifachiisaa",
+                ["ContributorRecentActivities"] = "Gochaalee Dhihoo",
+                ["ContributorPostTitle"] = "Mata-duree Postii",
+                ["ContributorCategory"] = "Ramaddii",
+                ["ContributorStatus"] = "Haala",
+                ["ContributorNoActivity"] = "Hamma yoonaatti gochi hin jiru. Hidhamtoota barreeffama cinaa olitti fayyadamuun postii galchuun jalqabaa!"
             },
             ["so"] = new Dictionary<string, string>()
             {
@@ -390,7 +426,19 @@ namespace DDCH
                 ["AdminTitleHdr"] = "Cinwaanka",
                 ["AdminIdentityManager"] = "Maamulaha Aqoonsiga & Kaalinta",
                 ["AdminTotalUsers"] = "Warta Isticmaalayaasha",
-                ["AdminVerifyMunicipal"] = "Xaqiiji aqoonsiga shaqada dawlada hoose oo oggolow aqoonsiga wax ku darsaday."
+                ["AdminVerifyMunicipal"] = "Xaqiiji aqoonsiga shaqada dawlada hoose oo oggolow aqoonsiga wax ku darsaday.",
+                ["ContributorWorkspace"] = "Goobta Shaqada ee Wax-ku-biiriyaha",
+                ["ContributorHub"] = "Xarunta Maamulka Xogta iyo Abuurista Nuxurka",
+                ["ContributorTotalPosts"] = "POSTIYADA GUUD",
+                ["ContributorApproved"] = "LA ANSIXIYAY",
+                ["ContributorPending"] = "SUGAYSA",
+                ["ContributorDeactivated"] = "LA JOOJIYAY",
+                ["ContributorQuickActions"] = "Tallaabooyinka Degdegga ah",
+                ["ContributorRecentActivities"] = "Dhaqdhaqaaqyadii Ugu Dambeeyay",
+                ["ContributorPostTitle"] = "Cinwaanka Boostada",
+                ["ContributorCategory"] = "Qaybta",
+                ["ContributorStatus"] = "Xaaladda",
+                ["ContributorNoActivity"] = "Weli wax dhaqdhaqaaq ah ma jiro. Ku billow inaad soo gudbiso boostada adoo isticmaalaya xiriiriyeyaasha dhinaca ee sare!"
             }
         };
 

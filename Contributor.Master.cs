@@ -10,11 +10,38 @@ namespace DDCH
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (HttpContext.Current.User == null || !HttpContext.Current.User.Identity.IsAuthenticated)
+            if (!IsPostBack)
             {
-                // Response.Redirect("~/Login.aspx");
+                string lang = LanguageHelper.GetCurrentLanguage();
+                ddlLanguage.SelectedValue = lang;
             }
+            ApplyLanguage();
             SetActiveLink();
+        }
+
+        protected void ddlLanguage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LanguageHelper.SetLanguage(ddlLanguage.SelectedValue);
+            Response.Redirect(Request.RawUrl);
+        }
+
+        private void ApplyLanguage()
+        {
+            lblLogo.Text = LanguageHelper.Get("Logo");
+            lblContributorSection.Text = LanguageHelper.Get("WorkspaceSection");
+            lblWorkspaceSection.Text = "DATA ENTRY"; // Or localized if needed
+            
+            lnkDashboard.Text = " " + LanguageHelper.Get("AdminDashboard"); // Reusing dashboard key
+            lnkPosters.Text = " " + LanguageHelper.Get("AdminPosters");
+            lnkWater.Text = " " + LanguageHelper.Get("AdminWater");
+            lnkHealth.Text = " " + LanguageHelper.Get("AdminHealth");
+            lnkJobs.Text = " " + LanguageHelper.Get("AdminJobs");
+            lnkAgri.Text = " " + LanguageHelper.Get("AdminAgri");
+            lnkSafety.Text = " " + LanguageHelper.Get("AdminSafety");
+            lnkStats.Text = " " + LanguageHelper.Get("AdminStats");
+            lnkPublic.Text = " " + LanguageHelper.Get("AdminPublic");
+            
+            btnLogout.Text = LanguageHelper.Get("AdminLogout");
         }
 
         private void SetActiveLink()
