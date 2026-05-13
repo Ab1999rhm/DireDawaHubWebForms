@@ -21,8 +21,40 @@ namespace DDCH
 
             if (!IsPostBack)
             {
+                ApplyLanguage();
                 LoadDashboard();
             }
+        }
+
+        private void ApplyLanguage()
+        {
+            lblTitle.Text = LanguageHelper.Get("AdminHubCommand");
+            lblSubTitle.Text = LanguageHelper.Get("AdminSystemGov");
+            btnLogout.Text = LanguageHelper.Get("AdminLogout");
+            
+            lblStat1Title.Text = LanguageHelper.Get("AdminPendingUsers");
+            lblStat2Title.Text = LanguageHelper.Get("AdminPendingPosts");
+            lblStat3Title.Text = LanguageHelper.Get("AdminActivePosts");
+            lblStat4Title.Text = LanguageHelper.Get("AdminStatusTitle");
+            lblAdminStatus.Text = LanguageHelper.Get("AdminOnline");
+            
+            lblUserMgtTitle.Text = " " + LanguageHelper.Get("AdminUserQueue");
+            lblUserEmailHdr.Text = LanguageHelper.Get("AdminEmailHdr");
+            lblUserWorkIdHdr.Text = LanguageHelper.Get("AdminWorkIdHdr");
+            
+            btnApproveUser1.Text = LanguageHelper.Get("AdminApprove");
+            btnRejectUser1.Text = LanguageHelper.Get("AdminReject");
+            btnApproveUser2.Text = LanguageHelper.Get("AdminApprove");
+            btnRejectUser2.Text = LanguageHelper.Get("AdminReject");
+            
+            lblPostMgtTitle.Text = " " + LanguageHelper.Get("AdminPostQueue");
+            lblPostCatHdr.Text = LanguageHelper.Get("AdminCatHdr");
+            lblPostTitleHdr.Text = LanguageHelper.Get("AdminTitleHdr");
+            
+            btnApprovePost1.Text = LanguageHelper.Get("AdminApprove");
+            btnRejectPost1.Text = LanguageHelper.Get("AdminReject");
+            btnApprovePost2.Text = LanguageHelper.Get("AdminApprove");
+            btnRejectPost2.Text = LanguageHelper.Get("AdminReject");
         }
 
         private void LoadDashboard()

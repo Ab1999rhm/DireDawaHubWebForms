@@ -26,6 +26,13 @@
             <asp:Panel ID="pnlHeader" runat="server" BackColor="#0F172A" BorderStyle="Solid" BorderColor="#334155" BorderWidth="1px" Style="position: absolute; left: 0px; top: 0px; width: 1200px; height: 80px; border-radius: 8px;">
                 <asp:Label ID="lblLogo" runat="server" Text="Dire Dawa Hub" Font-Bold="true" Font-Size="24px" ForeColor="White" Style="position: absolute; left: 20px; top: 25px;"></asp:Label>
                 
+                <asp:DropDownList ID="ddlLanguage" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlLanguage_SelectedIndexChanged" BackColor="#334155" ForeColor="White" BorderStyle="None" Style="position: absolute; left: 630px; top: 20px; width: 150px; height: 40px; border-radius: 8px; outline: none; cursor: pointer; padding-left: 10px;">
+                    <asp:ListItem Text="Afaan Oromoo" Value="om"></asp:ListItem>
+                    <asp:ListItem Text="English" Value="en"></asp:ListItem>
+                    <asp:ListItem Text="Amharic" Value="am"></asp:ListItem>
+                    <asp:ListItem Text="Af Somali" Value="so"></asp:ListItem>
+                </asp:DropDownList>
+
                 <asp:Button ID="BtnLogin" runat="server" Text="Login" BackColor="#1E40AF" ForeColor="White" Font-Bold="true" BorderStyle="None" Width="120px" Height="40px" Style="position: absolute; left: 808px; top: 18px; border-radius: 20px;" OnClick="BtnLogin_Click" />
                 
                 <asp:Button ID="BtnContributor" runat="server" Text="Contributors Portal" BackColor="#3B82F6" ForeColor="White" Font-Bold="true" BorderStyle="None" Height="40px" Style="position: absolute; left: 971px; top: 20px; border-radius: 20px; width: 209px;" OnClick="BtnContributor_Click" />
