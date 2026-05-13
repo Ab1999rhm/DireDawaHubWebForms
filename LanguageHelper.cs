@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Web;
+using System.IO;
 
 namespace DDCH
 {
@@ -444,34 +445,64 @@ namespace DDCH
 
         public static string Get(string key)
         {
-            string lang = GetCurrentLanguage();
-            if (translations.ContainsKey(lang) && translations[lang].ContainsKey(key))
+            try
             {
-                return translations[lang][key];
+                string lang = GetCurrentLanguage();
+                if (translations.ContainsKey(lang) && translations[lang].ContainsKey(key))
+                {
+                    return translations[lang][key];
+                }
+                // Fallback to English
+                if (translations.ContainsKey("en") && translations["en"].ContainsKey(key))
+                {
+                    return translations["en"][key];
+                }
             }
-            // Fallback to English
-            if (translations["en"].ContainsKey(key))
+            catch (Exception ex)
             {
-                return translations["en"][key];
+                LogError("Get: " + key, ex);
             }
-            return key;
+            return key; // Return the key as fallback
         }
 
         public static string GetCurrentLanguage()
         {
-            if (HttpContext.Current.Session != null && HttpContext.Current.Session["Lang"] != null)
+            try
             {
-                return HttpContext.Current.Session["Lang"].ToString();
+                if (HttpContext.Current != null && HttpContext.Current.Session != null && HttpContext.Current.Session["Lang"] != null)
+                {
+                    return HttpContext.Current.Session["Lang"].ToString();
+                }
             }
+            catch { }
             return "en"; // Default
         }
 
         public static void SetLanguage(string lang)
         {
-            if (HttpContext.Current.Session != null)
+            try
             {
-                HttpContext.Current.Session["Lang"] = lang;
+                if (HttpContext.Current != null && HttpContext.Current.Session != null)
+                {
+                    HttpContext.Current.Session["Lang"] = lang;
+                }
             }
+            catch (Exception ex)
+            {
+                LogError("SetLanguage: " + lang, ex);
+            }
+        }
+
+        private static void LogError(string context, Exception ex)
+        {
+            try
+            {
+                string logPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "App_Data", "errors.log");
+                string message = string.Format("[{0}] LanguageHelper Context: {1} - Error: {2}\n",
+                    DateTime.Now.ToString(), context, ex.Message);
+                File.AppendAllText(logPath, message);
+            }
+            catch { }
         }
     }
 }

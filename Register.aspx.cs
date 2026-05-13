@@ -12,88 +12,106 @@ namespace DDCH
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            try
             {
-                ApplyLanguage();
+                if (!IsPostBack)
+                {
+                    ApplyLanguage();
+                }
             }
+            catch { }
         }
 
         private void ApplyLanguage()
         {
-            lblRegHeader.Text = LanguageHelper.Get("RegHeader");
-            lblRegSub.Text = LanguageHelper.Get("RegSub");
-            lblReqTitle.Text = LanguageHelper.Get("DocReqs");
-            lblReq1.Text = LanguageHelper.Get("Req1");
-            lblReq2.Text = LanguageHelper.Get("Req2");
-            lblRegEmail.Text = LanguageHelper.Get("Email");
-            lblRegWorkId.Text = LanguageHelper.Get("WorkIdNum");
-            lblDocType.Text = LanguageHelper.Get("DocType");
-            lblUpload.Text = LanguageHelper.Get("UploadId");
-            lblRegPass.Text = LanguageHelper.Get("Password");
-            lblRegConf.Text = LanguageHelper.Get("ConfPass");
-            btnRegSubmit.Text = LanguageHelper.Get("RegSubmitBtn");
-            lblLoginText.Text = LanguageHelper.Get("AlreadyAcc");
-            lnkLogin.Text = LanguageHelper.Get("SignInLink");
+            try
+            {
+                lblRegHeader.Text = LanguageHelper.Get("RegHeader");
+                lblRegSub.Text = LanguageHelper.Get("RegSub");
+                lblReqTitle.Text = LanguageHelper.Get("DocReqs");
+                lblReq1.Text = LanguageHelper.Get("Req1");
+                lblReq2.Text = LanguageHelper.Get("Req2");
+                lblRegEmail.Text = LanguageHelper.Get("Email");
+                lblRegWorkId.Text = LanguageHelper.Get("WorkIdNum");
+                lblDocType.Text = LanguageHelper.Get("DocType");
+                lblUpload.Text = LanguageHelper.Get("UploadId");
+                lblRegPass.Text = LanguageHelper.Get("Password");
+                lblRegConf.Text = LanguageHelper.Get("ConfPass");
+                btnRegSubmit.Text = LanguageHelper.Get("RegSubmitBtn");
+                lblLoginText.Text = LanguageHelper.Get("AlreadyAcc");
+                lnkLogin.Text = LanguageHelper.Get("SignInLink");
+            }
+            catch { }
         }
 
         protected void btnRegSubmit_Click(object sender, EventArgs e)
         {
-            string email = txtRegEmail.Text.Trim();
-            string password = txtRegPass.Text.Trim();
-            string confirmPassword = txtRegConf.Text.Trim();
-            string workId = txtRegWorkId.Text.Trim();
-            string docType = ddlDocType.SelectedValue;
+            try
+            {
+                string email = txtRegEmail.Text.Trim();
+                string password = txtRegPass.Text.Trim();
+                string confirmPassword = txtRegConf.Text.Trim();
+                string workId = txtRegWorkId.Text.Trim();
+                string docType = ddlDocType.SelectedValue;
 
-            if (password != confirmPassword)
-            {
-                lblStatus.Text = "Passwords do not match.";
-                lblStatus.ForeColor = System.Drawing.Color.Red;
-                return;
-            }
+                if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(workId))
+                {
+                    lblStatus.Text = "Please fill in all required fields.";
+                    lblStatus.ForeColor = System.Drawing.Color.Red;
+                    return;
+                }
 
-            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(workId))
-            {
-                lblStatus.Text = "Please fill in all required fields.";
-                lblStatus.ForeColor = System.Drawing.Color.Red;
-                return;
-            }
+                if (password != confirmPassword)
+                {
+                    lblStatus.Text = "Passwords do not match.";
+                    lblStatus.ForeColor = System.Drawing.Color.Red;
+                    return;
+                }
 
-            if (RegisterUser(email, password, workId, docType))
-            {
-                lblStatus.Text = "Registered successfully! Waiting for admin approval.";
-                lblStatus.ForeColor = System.Drawing.Color.Green;
-                
-                // Clear the form
-                txtRegEmail.Text = "";
-                txtRegPass.Text = "";
-                txtRegConf.Text = "";
-                txtRegWorkId.Text = "";
-                
-                btnRegSubmit.Enabled = false;
-                btnRegSubmit.BackColor = System.Drawing.Color.Gray;
+                if (RegisterUser(email, password, workId, docType))
+                {
+                    lblStatus.Text = "Registered successfully! Waiting for admin approval.";
+                    lblStatus.ForeColor = System.Drawing.Color.Green;
+                    
+                    // Clear the form
+                    txtRegEmail.Text = "";
+                    txtRegPass.Text = "";
+                    txtRegConf.Text = "";
+                    txtRegWorkId.Text = "";
+                    
+                    btnRegSubmit.Enabled = false;
+                    btnRegSubmit.BackColor = System.Drawing.Color.Gray;
+                }
+                else
+                {
+                    lblStatus.Text = "Registration failed. Email might already exist or a database error occurred.";
+                    lblStatus.ForeColor = System.Drawing.Color.Red;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                lblStatus.Text = "Registration failed. Email might already exist.";
+                lblStatus.Text = "An unexpected error occurred. Please try again.";
                 lblStatus.ForeColor = System.Drawing.Color.Red;
+                System.Diagnostics.Trace.WriteLine("Registration Error: " + ex.Message);
             }
         }
 
         private bool RegisterUser(string email, string password, string workId, string docType)
         {
-            string sql = "INSERT INTO Users (Email, Password, Role, WorkId, DocType, IsVerified) VALUES (@email, @password, 'Contributor', @workId, @docType, 0)";
             try
             {
-                DatabaseHelper.ExecuteNonQuery(sql,
+                string sql = "INSERT INTO Users (Email, Password, Role, WorkId, DocType, IsVerified) VALUES (@email, @password, 'Contributor', @workId, @docType, 0)";
+                int result = DatabaseHelper.ExecuteNonQuery(sql,
                     new SQLiteParameter("@email", email),
                     new SQLiteParameter("@password", password),
                     new SQLiteParameter("@workId", workId),
                     new SQLiteParameter("@docType", docType));
-                return true;
+                
+                return result > 0;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                // Log error or show message (e.g. email already exists)
+                System.Diagnostics.Trace.WriteLine("RegisterUser Error: " + ex.Message);
                 return false;
             }
         }
