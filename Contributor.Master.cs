@@ -1,3 +1,4 @@
+// Re-compiled Contributor Master
 using System;
 using System.Web;
 using System.Web.UI;
@@ -19,7 +20,7 @@ namespace DDCH
             SetActiveLink();
         }
 
-        protected void ddlLanguage_SelectedIndexChanged(object sender, EventArgs e)
+        public void ddlLanguage_SelectedIndexChanged(object sender, EventArgs e)
         {
             LanguageHelper.SetLanguage(ddlLanguage.SelectedValue);
             Response.Redirect(Request.RawUrl);
@@ -29,9 +30,9 @@ namespace DDCH
         {
             lblLogo.Text = LanguageHelper.Get("Logo");
             lblContributorSection.Text = LanguageHelper.Get("WorkspaceSection");
-            lblWorkspaceSection.Text = "DATA ENTRY"; // Or localized if needed
+            lblWorkspaceSection.Text = "DATA ENTRY";
             
-            lnkDashboard.Text = " " + LanguageHelper.Get("AdminDashboard"); // Reusing dashboard key
+            lnkDashboard.Text = " " + LanguageHelper.Get("AdminDashboard");
             lnkPosters.Text = " " + LanguageHelper.Get("AdminPosters");
             lnkWater.Text = " " + LanguageHelper.Get("AdminWater");
             lnkHealth.Text = " " + LanguageHelper.Get("AdminHealth");
