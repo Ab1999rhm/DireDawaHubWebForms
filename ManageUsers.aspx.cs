@@ -22,8 +22,27 @@ namespace DDCH
 
             if (!IsPostBack)
             {
+                ApplyLanguage();
                 LoadUsers();
             }
+        }
+
+        private void ApplyLanguage()
+        {
+            lblBreadcrumb.Text = "Home / Admin / " + LanguageHelper.Get("AdminUsers");
+            lblHeaderTitle.Text = LanguageHelper.Get("AdminIdentityManager");
+            lblHeaderSub.Text = LanguageHelper.Get("AdminVerifyMunicipal");
+            lblTotalTitle.Text = LanguageHelper.Get("AdminTotalUsers");
+            
+            lblSearch.Text = LanguageHelper.Get("SearchBtn"); // Use existing key
+            btnApplyFilter.Text = LanguageHelper.Get("SearchBtn");
+            
+            lblUserEmailHdr.Text = LanguageHelper.Get("AdminEmailHdr");
+            lblUserWorkIdHdr.Text = LanguageHelper.Get("AdminWorkIdHdr");
+            
+            btnApproveUser1.Text = LanguageHelper.Get("AdminApprove");
+            btnApproveUser2.Text = LanguageHelper.Get("AdminApprove");
+            btnApproveUser3.Text = LanguageHelper.Get("AdminApprove");
         }
 
         private void ShowUserApprovalModal(string userId, int rowIndex)

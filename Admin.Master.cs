@@ -12,9 +12,42 @@ namespace DDCH
         {
             if (!IsPostBack)
             {
+                string lang = LanguageHelper.GetCurrentLanguage();
+                ddlLanguage.SelectedValue = lang;
                 LoadSidebarStats();
             }
+            ApplyLanguage();
             SetActiveLink();
+        }
+
+        protected void ddlLanguage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LanguageHelper.SetLanguage(ddlLanguage.SelectedValue);
+            Response.Redirect(Request.RawUrl);
+        }
+
+        private void ApplyLanguage()
+        {
+            lblLogo.Text = LanguageHelper.Get("Logo");
+            lblAdminSection.Text = LanguageHelper.Get("AdminSection");
+            lblWorkspaceSection.Text = LanguageHelper.Get("WorkspaceSection");
+            
+            lnkAnalytics.Text = LanguageHelper.Get("AdminAnalytics");
+            lnkUsers.Text = LanguageHelper.Get("AdminUsers");
+            lnkCatalog.Text = LanguageHelper.Get("AdminCatalog");
+            lnkAudit.Text = LanguageHelper.Get("AdminAudit");
+            
+            lnkDashboard.Text = LanguageHelper.Get("AdminDashboard");
+            lnkPosters.Text = LanguageHelper.Get("AdminPosters");
+            lnkWater.Text = LanguageHelper.Get("AdminWater");
+            lnkHealth.Text = LanguageHelper.Get("AdminHealth");
+            lnkJobs.Text = LanguageHelper.Get("AdminJobs");
+            lnkAgri.Text = LanguageHelper.Get("AdminAgri");
+            lnkSafety.Text = LanguageHelper.Get("AdminSafety");
+            lnkStats.Text = LanguageHelper.Get("AdminStats");
+            lnkPublic.Text = LanguageHelper.Get("AdminPublic");
+            
+            btnLogout.Text = LanguageHelper.Get("AdminLogout");
         }
 
         private void SetActiveLink()

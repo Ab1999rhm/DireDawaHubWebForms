@@ -9,6 +9,7 @@ namespace DDCH
         protected global::System.Web.UI.WebControls.Label lblLogo;
         protected global::System.Web.UI.WebControls.Button BtnLogin;
         protected global::System.Web.UI.WebControls.Button BtnContributor;
+        protected global::System.Web.UI.WebControls.DropDownList ddlLanguage;
         protected global::System.Web.UI.WebControls.Panel pnlMainContentArea;
         protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
         protected global::System.Web.UI.WebControls.Panel pnlFooter;
