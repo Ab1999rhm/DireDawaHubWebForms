@@ -17,8 +17,29 @@ namespace DDCH
 
             if (!IsPostBack)
             {
+                ApplyLanguage();
                 LoadDashboard();
             }
+        }
+
+        private void ApplyLanguage()
+        {
+            lblTitle.Text = LanguageHelper.Get("ContributorWorkspace");
+            lblSubTitle.Text = LanguageHelper.Get("ContributorHub");
+            
+            lblStat1Title.Text = LanguageHelper.Get("ContributorTotalPosts");
+            lblStat2Title.Text = LanguageHelper.Get("ContributorApproved");
+            lblStat3Title.Text = LanguageHelper.Get("ContributorPending");
+            lblStat4Title.Text = LanguageHelper.Get("ContributorDeactivated");
+            
+            lblQATitle.Text = LanguageHelper.Get("ContributorQuickActions");
+            
+            lblRecentTitle.Text = LanguageHelper.Get("ContributorRecentActivities");
+            lblHdrTitle.Text = LanguageHelper.Get("ContributorPostTitle");
+            lblHdrCategory.Text = LanguageHelper.Get("ContributorCategory");
+            lblHdrStatus.Text = LanguageHelper.Get("ContributorStatus");
+            
+            lblNoActivity.Text = LanguageHelper.Get("ContributorNoActivity");
         }
 
         private void LoadDashboard()

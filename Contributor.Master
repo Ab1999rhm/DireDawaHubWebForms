@@ -82,8 +82,8 @@
                 </script>
 
                 <asp:Panel ID="pnlLang" runat="server" BackColor="#334155" Style="position: absolute; left: 20px; top: 85px; width: 240px; height: 40px; border-radius: 8px;">
-                    <asp:Label ID="lblLangIcon" runat="server" Text="" ForeColor="White" Style="position: absolute; left: 10px; top: 10px;"></asp:Label>
-                    <asp:DropDownList ID="ddlLanguage" runat="server" BackColor="#334155" ForeColor="White" BorderStyle="None" Style="position: absolute; left: 35px; top: 10px; width: 190px; outline: none; cursor: pointer;">
+                    <asp:Label ID="lblLangIcon" runat="server" Text="Lang:" ForeColor="White" Style="position: absolute; left: 10px; top: 10px;"></asp:Label>
+                    <asp:DropDownList ID="ddlLanguage" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlLanguage_SelectedIndexChanged" BackColor="#334155" ForeColor="White" BorderStyle="None" Style="position: absolute; left: 55px; top: 10px; width: 175px; outline: none; cursor: pointer;">
                         <asp:ListItem Text="Afaan Oromoo" Value="om"></asp:ListItem>
                         <asp:ListItem Text="English" Value="en"></asp:ListItem>
                         <asp:ListItem Text="Amharic" Value="am"></asp:ListItem>
